@@ -8,7 +8,7 @@
 
 -- {{{ Main
 theme = {}
-theme.wallpaper_cmd = { "awsetbg /home/maione/imagens/wallpapers/debian-wallpaper-metal-1920x1080.jpg" }
+theme.wallpaper_cmd = { "awsetbg ./wallpapers/debian-01.jpg" }
 -- }}}
 
 -- {{{ Styles
