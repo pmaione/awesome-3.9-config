@@ -8,7 +8,7 @@
 
 -- {{{ Main
 theme = {}
-theme.wallpaper_cmd = { "awsetbg ./wallpapers/debian-01.jpg" }
+theme.wallpaper_cmd = { "awsetbg ~/.config/themes/wallpapers/debian-01.jpg" }
 -- }}}
 
 -- {{{ Styles
