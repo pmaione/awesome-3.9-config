@@ -7,17 +7,13 @@ require("awful")
 require("awful.autofocus")
 require("awful.rules")
 -- Theme handling library
-local beautiful = require("beautiful")
+require("beautiful")
 -- Notification library
 require("naughty")
-
-local vicious = require("vicious")
-
--- Load Debian menu entries
--- require("debian.menu")
+-- Biblioteca de widgets
+require("vicious")
 
 local hostname = io.popen("uname -n"):read()
-
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -33,16 +29,20 @@ end
 -- Handle runtime errors after startup
 do
    local in_error = false
-   awesome.add_signal("debug::error", function (err)
-                         -- Make sure we don't go into an endless error loop
-                         if in_error then return end
-                         in_error = true
-
-                         naughty.notify({ preset = naughty.config.presets.critical,
-                                          title = "Oops, an error happened!",
-                                          text = err })
-                         in_error = false
-   end)
+   awesome.add_signal(
+      "debug::error",
+      function (err)
+	 -- Make sure we don't go into an endless error loop
+	 if in_error then return end
+	 in_error = true
+	 naughty.notify(
+	    { preset = naughty.config.presets.critical,
+	      title = "Erro!",
+	      text = err }
+	 )
+	 in_error = false
+      end
+   )
 end
 -- }}}
 
@@ -52,31 +52,42 @@ end
 -- beautiful.init(awful.util.getdir("config") .. "/themes/default/theme.lua")
 beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/default/theme.lua")
 
+local commands = {
+   terminal = "/usr/bin/rxvt-unicode",
+   web_browser = "firefox",
+   emacs = {
+      server = "emacs --daemon",
+      client = "emacsclient -c",
+      client_cmd = "emacsclient -c -nw"
+   },
+   gnome = {
+      file_manager = "nautilus",
+   },
+   nop = "",
+}
+
 -- This is used later as the default terminal and editor to run.
 terminal = "x-terminal-emulator"
 editor = "emacs"
 editor_cmd = terminal .. " -e " .. editor .. " -nw"
-
-firefox = "firefox"
-files = "nautilus"
 
 -- Modkey padrão (aka Super, ou do logotipo, ou a tecla entre control e alt, etc...)
 modkey = "Mod4"
 
 -- Tabela de layouts. Utilizada com 'awful.layout.inc' (a ordem importa)
 layouts = {
-   awful.layout.suit.tile,
-   awful.layout.suit.tile.left,
-   awful.layout.suit.tile.bottom,
-   awful.layout.suit.tile.top,
-   -- awful.layout.suit.fair,
+   ["tile"] = awful.layout.suit.tile,
+   ["tile-left"] = awful.layout.suit.tile.left,
+   -- awful.layout.suit.tile.bottom,
+   -- awful.layout.suit.tile.top,
+   ["fair"] = awful.layout.suit.fair,
    -- awful.layout.suit.fair.horizontal,
    -- awful.layout.suit.spiral,
    -- awful.layout.suit.spiral.dwindle,
-   awful.layout.suit.max,
+   ["max"] = awful.layout.suit.max,
    -- awful.layout.suit.max.fullscreen,
    -- awful.layout.suit.magnifier
-   awful.layout.suit.floating,
+   ["float"] = awful.layout.suit.floating,
 }
 -- }}}
 
@@ -84,12 +95,13 @@ layouts = {
 -- Define uma tabela de tags para armazenar todas as "screen tags"
 tags = {
    -- Define o nome das tags
-   names = {"Main", "www", "Dev", "Misc"},
+   names = {"Main", "www", "Dev", "Misc", "Emacs"},
    -- Define os layouts de cada tag
-   layout = {layouts[1], -- Main -> tile
-             layouts[5], -- www -> max
-             layouts[1], -- Dev -> tile
-             layouts[6], -- Misc -> float
+   layout = {layouts["tile"], -- Main -> tile
+             layouts["max"], -- www -> max
+             layouts["tile"], -- Dev -> tile
+             layouts["float"], -- Misc -> float
+	     layouts["max"], -- Emacs -> max
    }
 }
 
@@ -110,15 +122,16 @@ myawesomemenu = {
    { "sair", awesome.quit }
 }
 
-meuMenuPrincipal = awful.menu.new({	--
+meuMenuPrincipal = awful.menu.new({
+      auto_expand = true,
       items = { --
-         -- { "awesome", myawesomemenu, beautiful.awesome_icon },
-         -- { "Debian", debian.menu.Debian_menu.Debian },
          { "Terminal", terminal },
-	 { "&Firefox", firefox},
-	 { "&Nautilus", files},
+	 { "&Firefox", commands.web_browser},
+	 { "&Nautilus", commands.file_manager},
+	 { "&Emacs (client)", commands.emacs.client},
+	 { "---", commands.nop },
          { "&Reiniciar", awesome.restart },
-         { "Sair (&Q)", awesome.quit }
+         { "Sair (&Q)", awesome.quit },
       }
 })
 
@@ -126,21 +139,21 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
                                      menu = meuMenuPrincipal })
 -- }}}
 
-
-separator = widget({ type = "imagebox" })
-separator.image = image(beautiful.widget_sep)
-
-
+-- Enable "hiding" of mouse
+local mouseIsVisible = true
 
 -- {{{ Wibox
--- Create a textclock widget
-mytextclock = awful.widget.textclock({ align = "right" })
+
+
+textclock = awful.widget.textclock({ align = "right" })
 
 -- Create a systray
 mysystray = widget({ type = "systray" })
 
 -- Create a wibox for each screen and add it
-mywibox = {}
+wibox_sup = {}			-- Minha wibox Superior
+
+-- mywibox = {}
 mypromptbox = {}
 mylayoutbox = {}
 mytaglist = {}
@@ -184,6 +197,11 @@ mytasklist.buttons = awful.util.table.join(
          if client.focus then client.focus:raise() end
 end))
 
+
+local separador = widget({ type = "textbox" })
+separador.text = " "
+
+
 for s = 1, screen.count() do
 
    -- Create a promptbox for each screen
@@ -212,23 +230,25 @@ for s = 1, screen.count() do
    )
 
    -- Create the wibox
-   mywibox[s] = awful.wibox({ position = "top", height=25, screen = s })
+   wibox_sup[s] = awful.wibox({ position = "top", height=25, screen = s })
+   -- mywibox[s] = awful.wibox({ position = "top", height=25, screen = s })
 
    -- Add widgets to the wibox - order matters
-   mywibox[s].widgets = {
-      mylayoutbox[s],
+   wibox_sup[s].widgets = {
       {
          -- mylauncher,
          mytaglist[s],
-         mypromptbox[s],
+	 mypromptbox[s],
          layout = awful.widget.layout.horizontal.leftright
       },
-      separator,
+      mylayoutbox[s],
       mytextclock,
       s == 1 and mysystray or nil,
       mytasklist[s],
       layout = awful.widget.layout.horizontal.rightleft
    }
+
+
 end
 -- }}}
 
