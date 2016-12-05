@@ -5,6 +5,15 @@ globalkeys = awful.util.table.join(
    awful.key({ modkey, }, "b", awful.tag.viewprev ),
    awful.key({ modkey, }, "f", awful.tag.viewnext ),
 
+   -- Integração com dmenu (Necessário o pacote 'suckless-tools')
+   awful.key({ "Mod1", }, "F2", function()
+	     awful.util.spawn("dmenu_run -i -p 'Run command:' -nb '" .. 
+ 		beautiful.bg_normal .. "' -nf '" .. beautiful.fg_normal .. 
+		"' -sb '" .. beautiful.bg_focus .. 
+		"' -sf '" .. beautiful.fg_focus .. "'") 
+   end),
+
+
    -- Default
    awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
    awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
