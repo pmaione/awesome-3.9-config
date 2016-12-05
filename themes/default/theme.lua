@@ -8,11 +8,10 @@
 
 theme = {}
 theme.icons = config_dir .. "/themes/default/icons"
-theme.wallpaper_cmd = { "awsetbg " .. config_dir .. "/themes/wallpapers/debian-02.png"}
+theme.wallpaper_cmd = { "awsetbg " .. config_dir .. "/themes/default/wallpaper.jpg"}
 
 
-
-theme.font          = "Inconsolata 10"
+theme.font          = "Inconsolata 12"
 
 theme.fg_normal     = "#cccccc"
 theme.fg_focus      = "#7fffd4"
@@ -30,7 +29,7 @@ theme.border_focus  = "#Add8e6"
 theme.border_marked = "#000000"
 
 
-theme.menu_height = 16
+theme.menu_height = 20
 theme.menu_width = 160
 
 -- There are other variable sets
@@ -52,20 +51,20 @@ theme.layout_tileleft   = theme.icons .. "/panel/layouts/tileleft.png"
 theme.layout_tilebottom = theme.icons .. "/panel/layouts/tilebottom.png"
 theme.layout_tiletop    = theme.icons .. "/panel/layouts/tiletop.png"
 theme.layout_max        = theme.icons .. "/panel/layouts/max.png"
-theme.layout_fullscreen        = theme.icons .. "/panel/layouts/maxfullscreen.png"
+theme.layout_fullscreen = theme.icons .. "/panel/layouts/maxfullscreen.png"
 theme.layout_magnifier  = theme.icons .. "/panel/layouts/magnifier.png"
-
+                                                    
 -- | Taglist | --
 
 theme.taglist_bg_empty    = "png:" .. theme.icons .. "/panel/taglist/empty.png"
 theme.taglist_bg_occupied = "png:" .. theme.icons .. "/panel/taglist/occupied.png"
 theme.taglist_bg_urgent   = "png:" .. theme.icons .. "/panel/taglist/urgent.png"
 theme.taglist_bg_focus    = "png:" .. theme.icons .. "/panel/taglist/focus.png"
-theme.taglist_font        = "Inconsolata Bold 10"
+theme.taglist_font        = theme.font
 
 -- | Tasklist | --
 
-theme.tasklist_font                 = "Inconsolata 10"
+theme.tasklist_font                 = theme.font
 theme.tasklist_disable_icon         = false
 theme.tasklist_bg_normal            = "png:" .. theme.icons .. "/panel/tasklist/normal.png"
 theme.tasklist_bg_focus             = "png:" .. theme.icons .. "/panel/tasklist/focus.png"

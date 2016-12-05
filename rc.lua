@@ -146,14 +146,16 @@ dofile(config_dir .. "/menus.lua")
 
 dofile(config_dir .. "/widgets/textclock.lua")
 
-blank_space = widget({ type = "textbox"})
+blank_space = widget({ type = "textbox" })
 blank_space.textbox = " "
 
-separator = widget({ type  = "textbox"})
-separator.textbox = '<span color="#7fffd4">' .. " | " .. '<\span>'
+separator = widget({ type  = "textbox" })
+separator.textbox = '<span color="' .. beautiful.fg_focus .. '">' .. " | " .. '<\span>'
 
 host_widget = widget({ type = "textbox" })
-host_widget.text = '<span color="#7fffd4">[ ' .. hostname .. ' ]</span>'
+host_widget.text = '<span color="' .. beautiful.fg_normal .. '"> [ </span>' ..
+   '<span color="' .. beautiful.fg_focus .. '">' .. hostname .. '</span>' ..
+   '<span color="' .. beautiful.fg_normal .. '"> ] </span>'
 
 
 -- Create a systray
