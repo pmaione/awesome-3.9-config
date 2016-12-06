@@ -56,7 +56,7 @@ end
 -- Themes define colours, icons, and wallpapers
 -- beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 -- beautiful.init(awful.util.getdir("config") .. "/themes/default/theme.lua")
-beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/default/theme.lua")
+beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/current/theme.lua")
 
 -- Coloca wallpaper em todas as telas
 if beautiful.wallpaper then
