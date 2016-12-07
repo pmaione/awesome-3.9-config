@@ -13,6 +13,8 @@ require("naughty")
 -- Biblioteca de widgets
 require("vicious")
 
+-- Funções 'helpers'
+require("helpers")
 
 -- {{{ Minhas variáveis
 config_dir = os.getenv("HOME") .. "/.config/awesome"
