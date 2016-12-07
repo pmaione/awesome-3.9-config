@@ -297,3 +297,6 @@ dofile(config_dir .. "/rules.lua")
 
 -- Signals
 dofile(config_dir .. "/signals.lua")
+
+-- Autorun
+require_safe('autorun')
