@@ -7,8 +7,8 @@
 -- local config_dir = os.getenv("HOME") .. "/.config/awesome"
 
 theme = {}
-theme.icons = config_dir .. "/themes/default/icons"
-theme.wallpaper_cmd = { "awsetbg " .. config_dir .. "/themes/default/wallpaper.jpg"}
+theme.icons = config_dir .. "/themes/current/icons"
+theme.wallpaper_cmd = { "awsetbg " .. config_dir .. "/themes/current/wallpaper.jpg"}
 
 
 theme.font          = "Inconsolata 12"
