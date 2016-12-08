@@ -99,18 +99,10 @@ modkey = "Mod4"
 
 -- Tabela de layouts. Utilizada com 'awful.layout.inc' (a ordem importa)
 layouts = {
-   ["tile"] = awful.layout.suit.tile,
-   ["tile-left"] = awful.layout.suit.tile.left,
-   -- awful.layout.suit.tile.bottom,
-   -- awful.layout.suit.tile.top,
-   ["fair"] = awful.layout.suit.fair,
-   -- awful.layout.suit.fair.horizontal,
-   -- awful.layout.suit.spiral,
-   -- awful.layout.suit.spiral.dwindle,
-   ["max"] = awful.layout.suit.max,
-   -- awful.layout.suit.max.fullscreen,
-   -- awful.layout.suit.magnifier
-   ["float"] = awful.layout.suit.floating,
+   awful.layout.suit.tile,
+   awful.layout.suit.fair,
+   awful.layout.suit.max,
+   awful.layout.suit.floating,
 }
 -- }}}
 
@@ -120,18 +112,16 @@ tags = {
    -- Define o nome das tags
    names = {
       "Emacs",
-      "Term",
       "Web",
-      "Multimedia",
       "Misc",
+      "Term",
    },
    -- Define os layouts de cada tag
    layout = {
-      layouts["max"],
-      layouts["fair"],
-      layouts["max"],
-      layouts["float"],
-      layouts["float"],
+      layouts[1],
+      layouts[3],
+      layouts[4],
+      layouts[1],
    }
 }
 
