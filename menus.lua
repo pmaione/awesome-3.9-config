@@ -1,8 +1,11 @@
 
+-- | Menus | -------------------------------------------------------------------
 
--- {{{ Menu
+-- TODO: Menus de eletronica
+-- TODO: Menus de livros
+-- TODO: Menus de Favoritos
 
--- Cria um "launcher widget" e um menu principal
+-- Declara o menu principal
 meuMenuPrincipal = awful.menu.new({
       auto_expand = true,
       items = { --
@@ -19,4 +22,3 @@ meuMenuPrincipal = awful.menu.new({
       }
 })
 
--- }}}

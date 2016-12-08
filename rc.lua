@@ -1,31 +1,30 @@
--- {{{
--- Meu arquivo de configuração awesome.rc
--- }}}
+---
+--- Meu arquivo de configuração awesome.rc
+---
 
--- Standard awesome library
+-- Versão awesome: 3.4.15
+
+
+-- | Bibliotecas | -------------------------------------------------------------
+
+-- Biblioteca Padrão do Awesome
 require("awful")
 require("awful.autofocus")
 require("awful.rules")
--- Theme handling library
+
+-- Biblioteca par gerenciar temas
 require("beautiful")
--- Notification library
+
+-- Biblioteca de notificações
 require("naughty")
+
 -- Biblioteca de widgets
-require("vicious")
+require("vicious")		-- Necesssário pacote 'awesome-extra'
 
 -- Funções 'helpers'
 require("helpers")
 
--- {{{ Minhas variáveis
-config_dir = os.getenv("HOME") .. "/.config/awesome"
-hostname = io.popen("uname -n"):read()
--- }}}
-
-local mouseIsVisible = true
-
--- {{{ Error handling
--- Check if awesome encountered an error during startup and fell back to
--- another config (This code will only ever execute for the fallback config)
+-- | Gerenciamento de Erros | --------------------------------------------------
 
 -- Verifica se houve algum erro durante a inicialização
 if awesome.startup_errors then
@@ -37,26 +36,31 @@ end
 -- Handle runtime errors after startup
 do
    local in_error = false
-   awesome.add_signal(
-      "debug::error",
-      function (err)
-	 -- Make sure we don't go into an endless error loop
-	 if in_error then return end
-	 in_error = true
-	 naughty.notify(
-	    { preset = naughty.config.presets.critical,
-	      title = "Erro!",
-	      text = err }
-	 )
-	 in_error = false
-      end
+   awesome.add_signal( "debug::error",
+		       function (err)
+			  -- Make sure we don't go into an endless error loop
+			  if in_error then return end
+			  in_error = true
+			  naughty.notify({
+				preset = naughty.config.presets.critical,
+				title = "Erro!",
+				text = err
+			  })
+			  in_error = false
+		       end
    )
 end
--- }}}
 
--- {{{ Variable definitions
--- Themes define cores, icones e wallpapers
-beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/current/theme.lua")
+-- | Definição de Variáveis | --------------------------------------------------
+
+-- Declara o diretório de configuração do Awesome ($HOME/.config/awesome)
+config_dir = os.getenv("HOME") .. "/.config/awesome"
+
+-- Declara o nome do host
+hostname = io.popen("uname -n"):read()
+
+-- Inicializa o módulo 'beautiful'
+beautiful.init(config_dir .. "/themes/current/theme.lua")
 
 -- Coloca wallpaper em todas as telas
 if beautiful.wallpaper then
@@ -65,7 +69,7 @@ if beautiful.wallpaper then
    end
 end
 
-
+-- Declara a tabela com nome dos comandos
 commands = {
    terminal = {
       server = "/usr/bin/urxvtd",
@@ -106,10 +110,10 @@ layouts = {
 tags = {
    -- Define o nome das tags
    names = {
-      "Emacs",
-      "Web",
-      "Misc",
-      "Term",
+      " | Emacs | ",
+      " | Web   | ",
+      " | Misc  |",
+      " | Term  | ",
    },
    -- Define os layouts de cada tag
    layout = {
