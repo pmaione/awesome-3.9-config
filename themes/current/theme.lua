@@ -32,8 +32,7 @@ theme.menu_height = 20
 theme.menu_width = 200
 
 -- | Layout | --
-theme.layout_floating = "[float]"
-theme.layout_tile = "[ |=]"
+
 -- theme.layout_floating   = theme.icons .. "/panel/layouts/floating.png"
 -- theme.layout_tile       = theme.icons .. "/panel/layouts/tile.png"
 -- theme.layout_tileleft   = theme.icons .. "/panel/layouts/tileleft.png"
