@@ -118,7 +118,7 @@ tags = {
    -- Define os layouts de cada tag
    layout = {
       layouts[1],
-      layouts[3],
+      layouts[2],
       layouts[4],
       layouts[1],
    }
