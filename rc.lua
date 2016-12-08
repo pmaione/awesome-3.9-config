@@ -69,7 +69,10 @@ end
 
 
 commands = {
-   terminal = "/usr/bin/urxvt",
+   terminal = {
+      server = "/usr/bin/urxvtd",
+      client = "/usr/bin/urxvtc",
+   },
    web_browser = "firefox",
    emacs = {
       server = "emacs --daemon",
@@ -89,13 +92,10 @@ elseif hostname == "death-star" then
    commands.file_manager = "pcmanfm"
 end
 
--- -- This is used later as the default terminal and commands.editor to run.
--- terminal = "x-terminal-emulator"
--- commands.editor = "emacs"
--- commands.editor_cmd = terminal .. " -e " .. commands.editor .. " -nw" --
 
 -- Modkey padrão (aka Super, ou do logotipo, ou a tecla entre control e alt, etc...)
 modkey = "Mod4"
+altkey = "Mod1"
 
 -- Tabela de layouts. Utilizada com 'awful.layout.inc' (a ordem importa)
 layouts = {
