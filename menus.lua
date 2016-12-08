@@ -19,6 +19,4 @@ meuMenuPrincipal = awful.menu.new({
       }
 })
 
-mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
-                                     menu = meuMenuPrincipal })
 -- }}}

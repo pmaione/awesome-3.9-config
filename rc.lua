@@ -55,9 +55,7 @@ end
 -- }}}
 
 -- {{{ Variable definitions
--- Themes define colours, icons, and wallpapers
--- beautiful.init("/usr/share/awesome/themes/default/theme.lua")
--- beautiful.init(awful.util.getdir("config") .. "/themes/default/theme.lua")
+-- Themes define cores, icones e wallpapers
 beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/current/theme.lua")
 
 -- Coloca wallpaper em todas as telas
@@ -79,19 +77,16 @@ commands = {
       client = "emacsclient -c",
       client_cmd = "emacsclient -c -nw"
    },
-   file_manager = "nautilus",
+   file_manager = "",
    nop = "",
 }
 
 -- Define as variaveis específicas de cada máquina
-naughty.notify({ text = "On host>: " .. hostname, })
 if hostname == "lothlorien" then
    commands.file_manager = "nautilus"
-   
 elseif hostname == "death-star" then
    commands.file_manager = "pcmanfm"
 end
-
 
 -- Modkey padrão (aka Super, ou do logotipo, ou a tecla entre control e alt, etc...)
 modkey = "Mod4"
@@ -138,14 +133,16 @@ dofile(config_dir .. "/menus.lua")
 
 dofile(config_dir .. "/widgets/textclock.lua")
 
+
+
 blank_space = widget({ type = "textbox" })
 blank_space.textbox = " "
 
 separator = widget({ type  = "textbox" })
 separator.textbox = '<span color="' .. beautiful.fg_focus .. '">' .. " | " .. '<\span>'
 
-host_widget = widget({ type = "textbox" })
-host_widget.text = '<span color="' .. beautiful.fg_normal .. '"> [ </span>' ..
+hostname_widget = widget({ type = "textbox" })
+hostname_widget.text = '<span color="' .. beautiful.fg_normal .. '"> [ </span>' ..
    '<span color="' .. beautiful.fg_focus .. '">' .. hostname .. '</span>' ..
    '<span color="' .. beautiful.fg_normal .. '"> ] </span>'
 
@@ -253,7 +250,7 @@ for s = 1, screen.count() do
 
    wibox_inf[s].widgets = {
       {
-	 host_widget,
+	 hostname_widget,
 	 layout = awful.widget.layout.horizontal.leftright
       },
       separator,

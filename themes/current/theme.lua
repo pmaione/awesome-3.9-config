@@ -11,26 +11,26 @@ theme.icons = config_dir .. "/themes/current/icons"
 theme.wallpaper_cmd = { "awsetbg " .. config_dir .. "/themes/current/wallpaper.jpg"}
 
 
-theme.font          = "Inconsolata 12"
+theme.font          = "Droid Sans 10"
 
-theme.fg_normal     = "#cccccc"
+theme.fg_normal     = "#bbbbbb"
 theme.fg_focus      = "#7fffd4"
 theme.fg_urgent     = "#00ffff"
 -- theme.bg_minimize   = "#444444"
 
 theme.bg_normal     = "#000000"
-theme.bg_focus      = "#000000"
-theme.bg_urgent     = "#000000"
+theme.bg_focus      = "#00ced1"
+theme.bg_urgent     = "#Ff8c00"
 theme.bg_minimize   = "#000000"
 
 theme.border_width  = 2
 theme.border_normal = "#000000"
-theme.border_focus  = "#Add8e6"
-theme.border_marked = "#000000"
+theme.border_focus  = "#40e0d0"
+theme.border_marked = "#Ff00ff"
 
 
 theme.menu_height = 20
-theme.menu_width = 160
+theme.menu_width = 200
 
 -- There are other variable sets
 -- overriding the default one when
@@ -41,7 +41,6 @@ theme.menu_width = 160
 -- mouse_finder_[color|timeout|animate_timeout|radius|factor]
 -- Example:
 --theme.taglist_bg_focus = "#ff0000"
-
 
 -- | Layout | --
 
@@ -56,19 +55,19 @@ theme.layout_magnifier  = theme.icons .. "/panel/layouts/magnifier.png"
                                                     
 -- | Taglist | --
 
-theme.taglist_bg_empty    = "png:" .. theme.icons .. "/panel/taglist/empty.png"
-theme.taglist_bg_occupied = "png:" .. theme.icons .. "/panel/taglist/occupied.png"
-theme.taglist_bg_urgent   = "png:" .. theme.icons .. "/panel/taglist/urgent.png"
-theme.taglist_bg_focus    = "png:" .. theme.icons .. "/panel/taglist/focus.png"
+theme.taglist_bg_empty    = theme.icons .. "/panel/taglist/empty.png"
+theme.taglist_bg_occupied = theme.icons .. "/panel/taglist/occupied.png"
+theme.taglist_bg_urgent   = theme.icons .. "/panel/taglist/urgent.png"
+theme.taglist_bg_focus    = theme.icons .. "/panel/taglist/focus.png"
 theme.taglist_font        = theme.font
 
 -- | Tasklist | --
 
 theme.tasklist_font                 = theme.font
 theme.tasklist_disable_icon         = false
-theme.tasklist_bg_normal            = "png:" .. theme.icons .. "/panel/tasklist/normal.png"
-theme.tasklist_bg_focus             = "png:" .. theme.icons .. "/panel/tasklist/focus.png"
-theme.tasklist_bg_urgent            = "png:" .. theme.icons .. "/panel/tasklist/urgent.png"
+theme.tasklist_bg_normal            = theme.icons .. "/panel/tasklist/normal.png"
+theme.tasklist_bg_focus             = theme.icons .. "/panel/tasklist/focus.png"
+theme.tasklist_bg_urgent            = theme.icons .. "/panel/tasklist/urgent.png"
 theme.tasklist_fg_focus             = "#7fffd4"
 theme.tasklist_fg_urgent            = "#00ffff"
 theme.tasklist_fg_normal            = "#cccccc"
@@ -203,4 +202,3 @@ return theme
 -- theme.awesome_icon = "/usr/share/awesome/icons/awesome16.png"
 
 -- return theme
--- -- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80
