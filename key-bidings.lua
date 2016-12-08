@@ -7,7 +7,7 @@ globalkeys = awful.util.table.join(
 
    -- Integração com dmenu (Necessário o pacote 'suckless-tools')
    awful.key({ "Mod1", }, "F2", function()
-	     awful.util.spawn("dmenu_run -i -p 'Run command:' -nb '" .. 
+	     awful.util.spawn("dmenu_run -i -p 'Executar:' -nb '" .. 
  		beautiful.bg_normal .. "' -nf '" .. beautiful.fg_normal .. 
 		"' -sb '" .. beautiful.bg_focus .. 
 		"' -sf '" .. beautiful.fg_focus .. "'") 
