@@ -3,10 +3,11 @@
 #+AUTHOR: Pedro Maione
 #+EMAIL: pedromaionee@gmail.com
 
+#+STARTUP: indent contents
+
 * Introdução
 
   Esta é a minha configuração do Awesome Window Manager.
-
   
 ** Screenshots
 
@@ -35,7 +36,6 @@
   - ~rules.lua~ :: Define as regras das janelas.
   - ~signals.lua~ :: Funções ~signal~.
     
-
 * Instalação
 
   Para instalar este repositório basta clonar com o git para o diretório ~$HOME/.config/awesome~.
@@ -44,3 +44,4 @@
   git clone https://gitlab.com/pmaione/awesomerc.git ~/.config/awesome
   #+END_SRC
 
+  

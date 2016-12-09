@@ -3,3 +3,5 @@
 
 
 * FAZER Remover atalhos de teclado com setas (substituir por atalhos emacs ou vim)
+
+* FAZER Inserir widget de internet.
