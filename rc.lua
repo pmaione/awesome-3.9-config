@@ -81,16 +81,9 @@ commands = {
       client = "emacsclient -c",
       client_cmd = "emacsclient -c -nw"
    },
-   file_manager = "",
+   file_manager = "pcmanfm",
    nop = "",
 }
-
--- Define as variaveis específicas de cada máquina
-if hostname == "lothlorien" then
-   commands.file_manager = "nautilus"
-elseif hostname == "death-star" then
-   commands.file_manager = "pcmanfm"
-end
 
 -- Modkey padrão (aka Super, ou do logotipo, ou a tecla entre control e alt, etc...)
 modkey = "Mod4"

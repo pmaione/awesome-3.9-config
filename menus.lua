@@ -11,7 +11,7 @@ meuMenuPrincipal = awful.menu.new({
       items = { --
          { "Terminal", commands.terminal },
 	 { "&Firefox", commands.web_browser},
-	 { "&Nautilus", commands.file_manager},
+	 { "&Arquivos", commands.file_manager},
 	 { "&Emacs (client)", commands.emacs.client},
 	 { "---", commands.nop },
          { "&Reiniciar Awesome", awesome.restart },
