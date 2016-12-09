@@ -1,0 +1,46 @@
+
+#+TITLE: Minhas configurações do Awesome WM
+#+AUTHOR: Pedro Maione
+#+EMAIL: pedromaionee@gmail.com
+
+* Introdução
+
+  Esta é a minha configuração do Awesome Window Manager.
+
+  
+** Screenshots
+
+   Clean:
+
+   [[file:screenshots/clean.png][Clean Screenshot]]
+
+   Dirt:
+   
+   [[file:screenshots/dirty.png][Dirty Screenshot]]
+
+* Estrutura
+
+  Diretórios:
+  
+  - ~themes~ :: Contém os temas (atualmente apenas o ~current~).
+  - ~widgets~ :: Definição dos widgets
+
+  Arquivos:
+
+  - ~rc.lua~ :: Arquivo que é executado pelo Awesome. Mais informações =man awesome=.
+  - ~autorun.lua~ :: Contém os comandos a serem executados automaticamente ao iniciar o Awesome.
+  - ~key-bindings.lua~ :: Definição dos atalhos de teclado e mouse.
+  - ~helpers.lua~ :: Funções =init=, =dbg=, etc.
+  - ~menus.lua~ :: Define os menus.
+  - ~rules.lua~ :: Define as regras das janelas.
+  - ~signals.lua~ :: Funções ~signal~.
+    
+
+* Instalação
+
+  Para instalar este repositório basta clonar com o git para o diretório ~$HOME/.config/awesome~.
+
+  #+BEGIN_SRC sh :exports code :results silent
+  git clone https://gitlab.com/pmaione/awesomerc.git ~/.config/awesome
+  #+END_SRC
+

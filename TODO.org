@@ -1,0 +1,5 @@
+
+#+title: Lista de tarefas do Awesomerc
+
+
+* FAZER Remover atalhos de teclado com setas (substituir por atalhos emacs ou vim)
