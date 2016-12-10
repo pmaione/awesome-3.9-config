@@ -38,10 +38,16 @@
     
 * Instalação
 
-  Para instalar este repositório basta clonar com o git para o diretório ~$HOME/.config/awesome~.
+Para o Debian 8.6, basta instalar os pacotes =awesome= e =aweesome-extra=.
 
-  #+BEGIN_SRC sh :exports code :results silent
-  git clone https://gitlab.com/pmaione/awesomerc.git ~/.config/awesome
-  #+END_SRC
+#+BEGIN_EXAMPLE
+# apt-install awesome awesome-extra
+#+END_EXAMPLE
+
+Para instalar este repositório basta clonar com o git para o diretório ~$HOME/.config/awesome~.
+
+#+BEGIN_SRC sh :exports code :results silent
+git clone https://gitlab.com/pmaione/awesomerc.git ~/.config/awesome
+#+END_SRC
 
   
