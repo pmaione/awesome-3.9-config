@@ -76,6 +76,7 @@ commands = {
       client = "/usr/bin/urxvtc",
    },
    web_browser = "firefox",
+   web_browser_private = "firefox --private-window",
    emacs = {
       server = "emacs --daemon",
       client = "emacsclient -c",

@@ -10,7 +10,10 @@ meuMenuPrincipal = awful.menu.new({
       auto_expand = true,
       items = { --
          { "Terminal", commands.terminal },
-	 { "&Firefox", commands.web_browser},
+	 { "---", commands.nop },
+	 { "Firefox", commands.web_browser},
+	 { "&Firefox Private", commands.web_browser_private},
+	 { "---", commands.nop },
 	 { "&Arquivos", commands.file_manager},
 	 { "&Emacs (client)", commands.emacs.client},
 	 { "---", commands.nop },
